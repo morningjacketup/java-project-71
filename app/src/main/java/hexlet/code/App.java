@@ -9,9 +9,16 @@ import java.security.MessageDigest;
 import java.util.concurrent.Callable;
 
 
-@CommandLine.Command(name = "gendiff", mixinStandardHelpOptions = true, version = "1.0",
+@CommandLine.Command(name = "gendiff",
+        mixinStandardHelpOptions = true,
+        version = "1.0",
         description = "Compares two configuration files and shows a difference.")
 public class App implements Callable<Integer> {
+
+    @CommandLine.Option(names = { "-f", "--file" },
+            paramLabel = "format",
+            description = "output format [default: stylish]")
+    String format;
 
     public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
