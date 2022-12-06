@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Plain {
     public static String format(Map<String, String> proceedMap, Map<String, Object> map1, Map<String, Object> map2) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         Set<String> keys = new TreeSet<>(proceedMap.keySet());
         map1 = preparingMap(map1);
         map2 = preparingMap(map2);
@@ -16,17 +16,25 @@ public class Plain {
         for (String key : keys) {
             switch (proceedMap.get(key)) {
                 case "added":
-                    result += "Property \'" + key + "\' was added with value: " + map2.get(key) + "\n";
+                    result.append("Property \'")
+                            .append(key)
+                            .append("\' was added with value: ")
+                            .append(map2.get(key))
+                            .append("\n");
                     break;
                 case "deleted":
-                    result += "Property \'" + key + "\' was removed\n";
+                    result.append("Property \'")
+                            .append(key)
+                            .append("\' was removed\n");
                     break;
                 case "changed":
-                    result += "Property \'" + key
-                            + "\' was updated. From "
-                            + map1.get(key)
-                            + " to "
-                            + map2.get(key) + "\n";
+                    result.append("Property \'")
+                            .append(key)
+                            .append("\' was updated. From ")
+                            .append(map1.get(key))
+                            .append(" to ")
+                            .append(map2.get(key))
+                            .append("\n");
                     break;
                 case "unchanged":
                     break;
@@ -34,7 +42,10 @@ public class Plain {
                     throw new RuntimeException();
             }
         }
-        return result;
+        if (result.length() > 0) {
+            result.deleteCharAt(result.length() - 1);
+        }
+        return result.toString();
     }
 
     private static Map<String, Object> preparingMap(Map<String, Object> map) {
@@ -44,7 +55,7 @@ public class Plain {
             String key = item.getKey();
             var value = map.get(key);
             if (value instanceof String || value instanceof Character) {
-                resultMap.put(key, "\'" + value + "\'");
+                resultMap.put(key, "'" + value + "'");
             } else if (value == null) {
                 resultMap.put(key, null);
             } else if (value instanceof List || value instanceof Map) {
