@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-06T15:53:20" hostname="DESKTOP-PQRPMOP" time="0.171">
+<testsuite name="JsonTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-10T15:54:42" hostname="DESKTOP-PQRPMOP" time="1.293">
   <properties/>
-  <testcase name="test1()" classname="JsonTest" time="0.141"/>
-  <testcase name="test2()" classname="JsonTest" time="0.003"/>
-  <testcase name="test3()" classname="JsonTest" time="0.002"/>
-  <testcase name="test4()" classname="JsonTest" time="0.023"/>
+  <testcase name="test1()" classname="JsonTest" time="1.129"/>
+  <testcase name="test2()" classname="JsonTest" time="0.017"/>
+  <testcase name="test3()" classname="JsonTest" time="0.015"/>
+  <testcase name="test4()" classname="JsonTest" time="0.128"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
