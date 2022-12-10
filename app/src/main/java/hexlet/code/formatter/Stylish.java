@@ -4,9 +4,6 @@ import java.util.Map;
 
 public class Stylish {
     public static String format(Map<String, String> proceedMap, Map<String, Object> map1, Map<String, Object> map2) {
-        checkForNull(map1);
-        checkForNull(map2);
-
         String result = "{\n";
         for (Map.Entry<String, String> item : proceedMap.entrySet()) {
             String key = item.getKey();
@@ -28,16 +25,7 @@ public class Stylish {
                     throw new RuntimeException("operation not found");
             }
         }
-        result += "}";
+        result += "}\n";
         return result;
-    }
-
-    public static void checkForNull(Map<String, Object> map) {
-        for (Map.Entry<String, Object> object : map.entrySet()) {
-            String key = object.getKey();
-            if (object.getValue() == null) {
-                map.replace(key, "null");
-            }
-        }
     }
 }
