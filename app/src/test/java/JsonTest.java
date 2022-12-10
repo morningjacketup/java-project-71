@@ -36,4 +36,6 @@ public class JsonTest {
         String path2 = "src/test/resources/sameValuesYML2.yml";
         assertThat(json).isEqualTo(Differ.generate(path, path2, "json"));
     }
+
+
 }
