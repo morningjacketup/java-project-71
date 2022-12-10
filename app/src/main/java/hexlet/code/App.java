@@ -23,8 +23,13 @@ public class App implements Callable<Object> {
     private String filePath2;
 
     @Override
-    public Integer call() throws Exception {
-        String difference = Differ.generate(filePath1, filePath2, format);
+    public Integer call() {
+        String difference = "";
+        try {
+            difference = Differ.generate(filePath1, filePath2, format);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(difference);
         return 0;
     }

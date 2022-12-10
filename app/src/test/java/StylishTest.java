@@ -9,12 +9,12 @@ public class StylishTest {
     @Test
     void test1() throws Exception {
         String json = "{\n"
-                + " - age: 60\n"
-                + " + age: 50\n"
-                + "   full name: Michael Jordan\n"
-                + "   isAlive: true\n"
-                + " - sex: Male\n"
-                + " + sex: Female\n"
+                + "  - age: 60\n"
+                + "  + age: 50\n"
+                + "    full name: Michael Jordan\n"
+                + "    isAlive: true\n"
+                + "  - sex: Male\n"
+                + "  + sex: Female\n"
                 + "}";
         String path = "src/test/resources/file1.json";
         String path2 = "src/test/resources/file2.json";
@@ -24,17 +24,17 @@ public class StylishTest {
     @Test
     void test2() throws Exception {
         String expected = "{\n"
-                + " - address: {streetName=Hettinger Forges, streetAddress=953 Hintz Valley, "
-                + "city=Bergnaummouth, zipcode=70672-6518, country=Indonesia}\n"
-                + " + address: {streetName=Hettinger Forges, streetAddress=3950 Vernon Dam Apt. 545, "
-                + "city=North Cory, postcode=75013, country=Mozambique}\n"
-                + " - description: Delectus dolores nihil eos ipsam sed.\n"
-                + " + description: Tenetur quos eos ex est expedita autem optio at.\n"
-                + "   email: imueller@lind.com\n"
-                + " - name: Donna Windler\n"
-                + " + name: Sibyl Shanahan\n"
-                + " - phone: (947) 639-5392\n"
-                + " + phone: 386.498.7405\n"
+                + "  - address: {streetName=Hettinger Forges, streetAddress=953 Hintz Valley, city=Bergnaummouth,"
+                + " zipcode=70672-6518, country=Indonesia}\n"
+                + "  + address: {streetName=Hettinger Forges, streetAddress=3950 Vernon Dam Apt. 545,"
+                + " city=North Cory, postcode=75013, country=Mozambique}\n"
+                + "  - description: Delectus dolores nihil eos ipsam sed.\n"
+                + "  + description: Tenetur quos eos ex est expedita autem optio at.\n"
+                + "    email: imueller@lind.com\n"
+                + "  - name: Donna Windler\n"
+                + "  + name: Sibyl Shanahan\n"
+                + "  - phone: (947) 639-5392\n"
+                + "  + phone: 386.498.7405\n"
                 + "}";
         String path = "src/test/resources/yaml1.yml";
         String path2 = "src/test/resources/yaml2.yml";
@@ -57,48 +57,16 @@ public class StylishTest {
     @Test
     void test4() throws Exception {
         String expected = "{\n"
-                + "   address: {streetName=Ratke Road, streetAddress=88602 Nolan Manors Suite 836, city=Klockoborough, "
-                + "postcode=82373, country=Cocos (Keeling) Islands}\n"
-                + "   description: Dignissimos deleniti cum suscipit qui. Eveniet facere nisi est error culpa atque. "
+                + "    address: {streetName=Ratke Road, streetAddress=88602 Nolan Manors Suite 836, "
+                + "city=Klockoborough, postcode=82373, country=Cocos (Keeling) Islands}\n"
+                + "    description: Dignissimos deleniti cum suscipit qui. Eveniet facere nisi est error culpa atque. "
                 + "Unde officiis hic rerum.\n"
-                + "   email: name53@padberg.org\n"
-                + "   name: Concepcion Pollich\n"
-                + "   phone: +1-575-403-3225\n"
+                + "    email: name53@padberg.org\n"
+                + "    name: Concepcion Pollich\n"
+                + "    phone: +1-575-403-3225\n"
                 + "}";
         String path = "src/test/resources/sameValuesYML.yml";
         String path2 = "src/test/resources/sameValuesYML2.yml";
-        assertThat(expected).isEqualTo(Differ.generate(path, path2, "stylish"));
-    }
-
-    @Test
-    void test5() throws Exception {
-        String expected = "{\n"
-                + "   chars1: [a, b, c]\n"
-                + " - chars2: [d, e, f]\n"
-                + " + chars2: false\n"
-                + " - checked: false\n"
-                + " + checked: true\n"
-                + " - default: null\n"
-                + " + default: [value1, value2]\n"
-                + " - id: 45\n"
-                + " + id: null\n"
-                + " - key1: value1\n"
-                + " + key2: value2\n"
-                + "   numbers1: [1, 2, 3, 4]\n"
-                + " - numbers2: [2, 3, 4, 5]\n"
-                + " + numbers2: [22, 33, 44, 55]\n"
-                + " - numbers3: [3, 4, 5]\n"
-                + " + numbers4: [4, 5, 6]\n"
-                + " + obj1: {nestedKey=value, isNested=true}\n"
-                + " - setting1: Some value\n"
-                + " + setting1: Another value\n"
-                + " - setting2: 200\n"
-                + " + setting2: 300\n"
-                + " - setting3: true\n"
-                + " + setting3: none\n"
-                + "}";
-        String path = "src/test/resources/fixtures/file1.json";
-        String path2 = "src/test/resources/fixtures/file2.json";
         assertThat(expected).isEqualTo(Differ.generate(path, path2, "stylish"));
     }
 }
