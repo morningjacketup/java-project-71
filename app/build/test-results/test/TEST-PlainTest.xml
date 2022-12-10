@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PlainTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-12-10T15:54:43" hostname="DESKTOP-PQRPMOP" time="0.06">
+<testsuite name="PlainTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-12-10T16:21:40" hostname="DESKTOP-PQRPMOP" time="0.035">
   <properties/>
-  <testcase name="test1()" classname="PlainTest" time="0.021"/>
-  <testcase name="test2()" classname="PlainTest" time="0.03"/>
-  <testcase name="test3()" classname="PlainTest" time="0.007"/>
+  <testcase name="test1()" classname="PlainTest" time="0.012"/>
+  <testcase name="test2()" classname="PlainTest" time="0.008"/>
+  <testcase name="test3()" classname="PlainTest" time="0.013"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
