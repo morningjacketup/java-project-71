@@ -25,7 +25,7 @@ public class Stylish {
                     throw new RuntimeException("operation not found");
             }
         }
-        result += "}\n";
+        result += "}";
         return result;
     }
 }
