@@ -9,21 +9,8 @@ run-dist2:
 run-dist3:
 	./build/install/app/bin/app ./src/test/resources/emptyjson.json ./src/test/resources/emptyjson2.json
 
-clean-run: clean-install run-dist
-
-
-clean-install:
-	./gradlew clean installDist
-
-
-install:
-	./gradlew clean install
-
-
 build:
 	./gradlew clean build
-
-
 
 test:
 	./gradlew test
