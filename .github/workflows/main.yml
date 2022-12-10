@@ -1,4 +1,4 @@
-name: Java CLI
+name: build
 
 on: push
 
