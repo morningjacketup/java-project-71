@@ -14,6 +14,13 @@ public class Differ {
         return Formatter.getFormat(format, map, map1, map2);
     }
 
+    public static String generate(String filePath1, String filePath2) throws Exception {
+        Map<String, Object> map1 = Parser.parse(filePath1);
+        Map<String, Object> map2 = Parser.parse(filePath2);
+        Map<String, String> map = compare(map1, map2);
+        return Formatter.getFormat("stylish", map, map1, map2);
+    }
+
     public static Map<String, String> compare(final Map<String, Object> map1, final Map<String, Object> map2) {
         Set<String> keys = new TreeSet<>();
         keys.addAll(map1.keySet());
