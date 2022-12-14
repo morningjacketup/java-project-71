@@ -19,7 +19,7 @@ public class Formatter {
             case "json":
                 return Json.format(proceedMap);
             default:
-                throw new Exception("format is not supported");
+                throw new Exception(formatName + " format is not supported");
         }
     }
 }

@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
         mixinStandardHelpOptions = true,
         version = "1.0",
         description = "Compares two configuration files and shows a difference.")
-public class App implements Callable<Object> {
+public class App implements Callable<Integer> {
 
     @CommandLine.Option(names = {"-f", "--format"},
             paramLabel = "format",
@@ -21,6 +21,8 @@ public class App implements Callable<Object> {
 
     @CommandLine.Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
     private String filePath2;
+    private static final int RIGHT = 0;
+    private static final int WRONG = 1;
 
     @Override
     public final Integer call() throws Exception {
@@ -30,9 +32,9 @@ public class App implements Callable<Object> {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
-            return 1;
+            return WRONG;
         }
-        return 0;
+        return RIGHT;
     }
 
     public static void main(String[] args) {

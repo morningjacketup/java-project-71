@@ -1,44 +1,32 @@
 package hexlet.code;
 
+import org.apache.commons.io.FilenameUtils;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.Objects;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2, String format) throws Exception {
-        Map<String, Object> map1 = Parser.parse(filePath1);
-        Map<String, Object> map2 = Parser.parse(filePath2);
-        Map<String, String> map = compare(map1, map2);
-        return Formatter.getFormat(format, map, map1, map2);
+        Map<String, Object> map1 = getFile(filePath1);
+        Map<String, Object> map2 = getFile(filePath2);
+        Map<String, String> treeMap = Tree.build(map1, map2);
+        return Formatter.getFormat(format, treeMap, map1, map2);
     }
 
-    public static String generate(String filePath1, String filePath2) throws Exception {
-        Map<String, Object> map1 = Parser.parse(filePath1);
-        Map<String, Object> map2 = Parser.parse(filePath2);
-        Map<String, String> map = compare(map1, map2);
-        return Formatter.getFormat("stylish", map, map1, map2);
+    private static String generate(String filePath1, String filePath2) throws Exception {
+        return generate(filePath1, filePath2, "stylish");
     }
 
-    public static Map<String, String> compare(final Map<String, Object> map1, final Map<String, Object> map2) {
-        Set<String> keys = new TreeSet<>();
-        keys.addAll(map1.keySet());
-        keys.addAll(map2.keySet());
+    private static Map<String, Object> getFile(String pathToFile) throws Exception {
+        Path path = Paths.get(pathToFile).toAbsolutePath().normalize();
 
-        Map<String, String> proceedMap = new TreeMap<>();
-
-        for (String key : keys) {
-            if (!map1.containsKey(key)) {
-                proceedMap.put(key, "added");
-            } else if (!map2.containsKey(key)) {
-                proceedMap.put(key, "deleted");
-            } else if (!(Objects.equals(map1.get(key), map2.get(key)))) {
-                proceedMap.put(key, "changed");
-            } else {
-                proceedMap.put(key, "unchanged");
-            }
+        if (!Files.exists(path)) {
+            throw new Exception("File '" + pathToFile + "' does not exists");
         }
-        return proceedMap;
+        String fileContent = Files.readString(path);
+        String fileType = FilenameUtils.getExtension(pathToFile);
+        return Parser.parse(fileType, fileContent);
     }
 }
