@@ -15,7 +15,7 @@ public class Differ {
         return Formatter.getFormat(format, treeMap, map1, map2);
     }
 
-    private static String generate(String filePath1, String filePath2) throws Exception {
+    public static String generate(String filePath1, String filePath2) throws Exception {
         return generate(filePath1, filePath2, "stylish");
     }
 
