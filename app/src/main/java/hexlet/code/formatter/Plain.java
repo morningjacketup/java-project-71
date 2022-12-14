@@ -54,11 +54,11 @@ public class Plain {
         for (Map.Entry<String, Object> item : map.entrySet()) {
             String key = item.getKey();
             var value = map.get(key);
-            if (value instanceof String || value instanceof Character) {
+            if (value instanceof String | value instanceof Character) {
                 resultMap.put(key, "'" + value + "'");
             } else if (value == null) {
                 resultMap.put(key, null);
-            } else if (value instanceof List || value instanceof Map) {
+            } else if (value instanceof List | value instanceof Map) {
                 resultMap.put(key, "[complex value]");
             } else {
                 resultMap.put(key, value);

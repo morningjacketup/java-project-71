@@ -12,7 +12,6 @@ public class Tree {
         Set<String> keys = new TreeSet<>();
         keys.addAll(map1.keySet());
         keys.addAll(map2.keySet());
-
         Map<String, String> proceedMap = new TreeMap<>();
 
         for (String key : keys) {

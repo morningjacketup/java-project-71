@@ -47,7 +47,7 @@ public class StylishTest {
         String path2 = "src/test/resources/yaml1.yml";
         Exception thrown = assertThrows(
                 Exception.class,
-                () -> Differ.generate(path, path2, "stylish"),
+                () -> Differ.generate(path, path2),
                 "Expected doThing() to throw, but it didn't"
         );
         Assertions.assertEquals("File type 'xml' is not supported. Please, select .json or .yml file",
