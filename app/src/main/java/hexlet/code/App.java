@@ -21,8 +21,8 @@ public class App implements Callable<Integer> {
 
     @CommandLine.Parameters(index = "1", paramLabel = "filepath2", description = "path to second file")
     private String filePath2;
-    private static final int RIGHT = 0;
-    private static final int WRONG = 1;
+    private static final int SUCCESS = 0;
+    private static final int FAIL = 1;
 
     @Override
     public final Integer call() throws Exception {
@@ -32,9 +32,9 @@ public class App implements Callable<Integer> {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
-            return WRONG;
+            return FAIL;
         }
-        return RIGHT;
+        return SUCCESS;
     }
 
     public static void main(String[] args) {
