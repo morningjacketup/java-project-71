@@ -12,17 +12,17 @@ public class Stylish {
             String key = item.getKey();
             switch (item.getValue().getStatusName()) {
                 case "added":
-                    result.append("  " + "+ " + key + ": " + proceedMap.get(key).getNewValue() + "\n");
+                    result.append("  + " + key + ": " + proceedMap.get(key).getNewValue() + "\n");
                     break;
                 case "deleted":
-                    result.append("  " + "- " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
+                    result.append("  - " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
                     break;
                 case "changed":
-                    result.append("  " + "- " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
-                    result.append("  " + "+ " + key + ": " + proceedMap.get(key).getNewValue() + "\n");
+                    result.append("  - " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
+                    result.append("  + " + key + ": " + proceedMap.get(key).getNewValue() + "\n");
                     break;
                 case "unchanged":
-                    result.append("  " + "  " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
+                    result.append("    " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
                     break;
                 default:
                     throw new RuntimeException("operation not found");
