@@ -1,9 +1,9 @@
 package hexlet.code;
 
-public class Difference {
-    private String status;
-    private Object oldValue;
-    private Object newValue;
+public final class Difference {
+    private final String status;
+    private final Object oldValue;
+    private final Object newValue;
 
     public Difference(String status, Object oldValue, Object newValue) {
         this.status = status;
