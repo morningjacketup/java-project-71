@@ -19,20 +19,20 @@ public class Plain {
 
         for (String key : keys) {
             switch (proceedMap.get(key).getStatusName()) {
-                case ADDED:
+                case ADDED -> {
                     Object addedValue = proceedMap.get(key).getNewValue();
                     result.append("Property \'")
                             .append(key)
                             .append("\' was added with value: ")
                             .append(checkForComplexValue(addedValue))
                             .append("\n");
-                    break;
-                case DELETED:
+                }
+                case DELETED -> {
                     result.append("Property \'")
                             .append(key)
                             .append("\' was removed\n");
-                    break;
-                case CHANGED:
+                }
+                case CHANGED -> {
                     Object oldValue = proceedMap.get(key).getOldValue();
                     Object newValue = proceedMap.get(key).getNewValue();
                     result.append("Property \'")
@@ -42,11 +42,9 @@ public class Plain {
                             .append(" to ")
                             .append(checkForComplexValue(newValue))
                             .append("\n");
-                    break;
-                case UNCHANGED:
-                    break;
-                default:
-                    throw new RuntimeException();
+                }
+                case UNCHANGED -> {}
+                default -> throw new RuntimeException();
             }
         }
         if (result.length() > 0) {
