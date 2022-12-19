@@ -8,14 +8,12 @@ import java.util.Map;
 
 public class Formatter {
     public static String getFormat(String formatName,
-                                   Map<String, String> proceedMap,
-                                   Map<String, Object> map1,
-                                   Map<String, Object> map2) throws Exception {
+                                   Map<String, Difference> proceedMap) throws Exception {
         switch (formatName) {
             case "stylish":
-                return Stylish.format(proceedMap, map1, map2);
+                return Stylish.format(proceedMap);
             case "plain":
-                return Plain.format(proceedMap, map1, map2);
+                return Plain.format(proceedMap);
             case "json":
                 return Json.format(proceedMap);
             default:
