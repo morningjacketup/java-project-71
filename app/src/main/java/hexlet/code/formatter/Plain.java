@@ -54,6 +54,9 @@ public class Plain {
         if (value instanceof String | value instanceof Character) {
             return "'" + value + "'";
         }
+        if (value == null) {
+            return "null";
+        }
         return value.toString();
     }
 }
