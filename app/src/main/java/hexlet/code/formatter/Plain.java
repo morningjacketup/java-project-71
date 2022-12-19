@@ -43,7 +43,8 @@ public class Plain {
                             .append(checkForComplexValue(newValue))
                             .append("\n");
                 }
-                case UNCHANGED -> {}
+                case UNCHANGED -> {
+                }
                 default -> throw new RuntimeException();
             }
         }
