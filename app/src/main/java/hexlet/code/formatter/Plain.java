@@ -7,6 +7,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.List;
 
+import static hexlet.code.Difference.*;
+
 public class Plain {
     public static String format(Map<String, Difference> proceedMap) {
         StringBuilder result = new StringBuilder();
@@ -14,28 +16,31 @@ public class Plain {
 
         for (String key : keys) {
             switch (proceedMap.get(key).getStatusName()) {
-                case "added":
+                case ADDED:
+                    Object addedValue = proceedMap.get(key).getNewValue();
                     result.append("Property \'")
                             .append(key)
                             .append("\' was added with value: ")
-                            .append(checkForComplexValue(proceedMap.get(key).getNewValue()))
+                            .append(checkForComplexValue(addedValue))
                             .append("\n");
                     break;
-                case "deleted":
+                case DELETED:
                     result.append("Property \'")
                             .append(key)
                             .append("\' was removed\n");
                     break;
-                case "changed":
+                case CHANGED:
+                    Object oldValue = proceedMap.get(key).getOldValue();
+                    Object newValue = proceedMap.get(key).getNewValue();
                     result.append("Property \'")
                             .append(key)
                             .append("\' was updated. From ")
-                            .append(checkForComplexValue(proceedMap.get(key).getOldValue()))
+                            .append(checkForComplexValue(oldValue))
                             .append(" to ")
-                            .append(checkForComplexValue(proceedMap.get(key).getNewValue()))
+                            .append(checkForComplexValue(newValue))
                             .append("\n");
                     break;
-                case "unchanged":
+                case UNCHANGED:
                     break;
                 default:
                     throw new RuntimeException();
