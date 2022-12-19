@@ -7,7 +7,10 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.List;
 
-import static hexlet.code.Difference.*;
+import static hexlet.code.Difference.ADDED;
+import static hexlet.code.Difference.DELETED;
+import static hexlet.code.Difference.CHANGED;
+import static hexlet.code.Difference.UNCHANGED;
 
 public class Plain {
     public static String format(Map<String, Difference> proceedMap) {

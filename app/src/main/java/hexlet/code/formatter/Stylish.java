@@ -4,7 +4,10 @@ import hexlet.code.Difference;
 
 import java.util.Map;
 
-import static hexlet.code.Difference.*;
+import static hexlet.code.Difference.ADDED;
+import static hexlet.code.Difference.DELETED;
+import static hexlet.code.Difference.CHANGED;
+import static hexlet.code.Difference.UNCHANGED;
 
 public class Stylish {
     public static String format(Map<String, Difference> proceedMap) {
