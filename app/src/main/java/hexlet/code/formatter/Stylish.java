@@ -10,7 +10,7 @@ public class Stylish {
         result.append("{\n");
         for (Map.Entry<String, Difference> item : proceedMap.entrySet()) {
             String key = item.getKey();
-            switch (item.getValue().getStatus()) {
+            switch (item.getValue().getStatusName()) {
                 case "added":
                     result.append("  " + "+ " + key + ": " + proceedMap.get(key).getNewValue() + "\n");
                     break;

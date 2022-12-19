@@ -13,7 +13,7 @@ public class Plain {
         Set<String> keys = new TreeSet<>(proceedMap.keySet());
 
         for (String key : keys) {
-            switch (proceedMap.get(key).getStatus()) {
+            switch (proceedMap.get(key).getStatusName()) {
                 case "added":
                     result.append("Property \'")
                             .append(key)

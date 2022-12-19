@@ -11,7 +11,7 @@ public final class Difference {
         this.newValue = newVal;
     }
 
-    public String getStatus() {
+    public String getStatusName() {
         return statusName;
     }
 

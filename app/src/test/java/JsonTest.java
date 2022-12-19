@@ -6,9 +6,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JsonTest {
     @Test
     void test1() throws Exception {
-        String json = "{\"age\":{\"status\":\"changed\",\"oldValue\":60,\"newValue\":50},\"full name\":{\""
-                + "status\":\"unchanged\",\"oldValue\":\"Michael Jordan\",\"newValue\":\"Michael Jordan\"},\""
-                + "isAlive\":{\"status\":\"unchanged\",\"oldValue\":true,\"newValue\":true},\"sex\":{\"status\""
+        String json = "{\"age\":{\"statusName\":\"changed\",\"oldValue\":60,\"newValue\":50},\"full name\":{\""
+                + "statusName\":\"unchanged\",\"oldValue\":\"Michael Jordan\",\"newValue\":\"Michael Jordan\"},\""
+                + "isAlive\":{\"statusName\":\"unchanged\",\"oldValue\":true,\"newValue\":true},\"sex\":{\"statusName\""
                 + ":\"changed\",\"oldValue\":\"Male\",\"newValue\":\"Female\"}}";
         String path = "src/test/resources/file1.json";
         String path2 = "src/test/resources/file2.json";
@@ -25,17 +25,17 @@ public class JsonTest {
 
     @Test
     void test3() throws Exception {
-        String json = "{\"address\":{\"status\":\"unchanged\",\"oldValue\":{\"streetName\":\"Ratke Road\","
+        String json = "{\"address\":{\"statusName\":\"unchanged\",\"oldValue\":{\"streetName\":\"Ratke Road\","
                 + "\"streetAddress\":\"88602 Nolan Manors Suite 836\",\"city\":\"Klockoborough\",\"postcode\":"
                 + "\"82373\",\"country\":\"Cocos (Keeling) Islands\"},\"newValue\":{\"streetName\":\"Ratke Road\""
                 + ",\"streetAddress\":\"88602 Nolan Manors Suite 836\",\"city\":\"Klockoborough\",\"postcode\":"
-                + "\"82373\",\"country\":\"Cocos (Keeling) Islands\"}},\"description\":{\"status\":\"unchanged\""
+                + "\"82373\",\"country\":\"Cocos (Keeling) Islands\"}},\"description\":{\"statusName\":\"unchanged\""
                 + ",\"oldValue\":\"Dignissimos deleniti cum suscipit qui. Eveniet facere nisi est error culpa atque."
                 + " Unde officiis hic rerum.\",\"newValue\":\"Dignissimos deleniti cum suscipit qui. "
-                + "Eveniet facere nisi est error culpa atque. Unde officiis hic rerum.\"},\"email\":{\"status\""
+                + "Eveniet facere nisi est error culpa atque. Unde officiis hic rerum.\"},\"email\":{\"statusName\""
                 + ":\"unchanged\",\"oldValue\":\"name53@padberg.org\",\"newValue\":\"name53@padberg.org\"},"
-                + "\"name\":{\"status\":\"unchanged\",\"oldValue\":\"Concepcion Pollich\",\"newValue\":"
-                + "\"Concepcion Pollich\"},\"phone\":{\"status\":\"unchanged\",\"oldValue\":\""
+                + "\"name\":{\"statusName\":\"unchanged\",\"oldValue\":\"Concepcion Pollich\",\"newValue\":"
+                + "\"Concepcion Pollich\"},\"phone\":{\"statusName\":\"unchanged\",\"oldValue\":\""
                 + "+1-575-403-3225\",\"newValue\":\"+1-575-403-3225\"}}";
         String path = "src/test/resources/sameValuesYML.yml";
         String path2 = "src/test/resources/sameValuesYML2.yml";
