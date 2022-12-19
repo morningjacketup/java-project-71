@@ -4,6 +4,8 @@ import hexlet.code.Difference;
 
 import java.util.Map;
 
+import static hexlet.code.Difference.*;
+
 public class Stylish {
     public static String format(Map<String, Difference> proceedMap) {
         StringBuilder result = new StringBuilder();
@@ -11,18 +13,23 @@ public class Stylish {
         for (Map.Entry<String, Difference> item : proceedMap.entrySet()) {
             String key = item.getKey();
             switch (item.getValue().getStatusName()) {
-                case "added":
-                    result.append("  + " + key + ": " + proceedMap.get(key).getNewValue() + "\n");
+                case ADDED:
+                    Object addedValue = proceedMap.get(key).getNewValue();
+                    result.append("  + " + key + ": " + addedValue + "\n");
                     break;
-                case "deleted":
-                    result.append("  - " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
+                case DELETED:
+                    Object deletedValue = proceedMap.get(key).getOldValue();
+                    result.append("  - " + key + ": " + deletedValue + "\n");
                     break;
-                case "changed":
-                    result.append("  - " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
-                    result.append("  + " + key + ": " + proceedMap.get(key).getNewValue() + "\n");
+                case CHANGED:
+                    Object oldValue = proceedMap.get(key).getOldValue();
+                    Object newValue = proceedMap.get(key).getNewValue();
+                    result.append("  - " + key + ": " + oldValue + "\n");
+                    result.append("  + " + key + ": " + newValue + "\n");
                     break;
-                case "unchanged":
-                    result.append("    " + key + ": " + proceedMap.get(key).getOldValue() + "\n");
+                case UNCHANGED:
+                    Object unchangedValue = proceedMap.get(key).getOldValue();
+                    result.append("    " + key + ": " + unchangedValue + "\n");
                     break;
                 default:
                     throw new RuntimeException("operation not found");
