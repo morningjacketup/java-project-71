@@ -1,18 +1,18 @@
 package hexlet.code;
 
 public final class Difference {
-    private final String status;
+    private final String statusName;
     private final Object oldValue;
     private final Object newValue;
 
-    public Difference(String status, Object oldValue, Object newValue) {
-        this.status = status;
-        this.oldValue = oldValue;
-        this.newValue = newValue;
+    public Difference(String status, Object oldVal, Object newVal) {
+        this.statusName = status;
+        this.oldValue = oldVal;
+        this.newValue = newVal;
     }
 
     public String getStatus() {
-        return status;
+        return statusName;
     }
 
     public Object getOldValue() {
